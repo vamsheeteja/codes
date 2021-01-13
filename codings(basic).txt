@@ -38,7 +38,8 @@ public class Main {
     }
 }
 
-// Is A Number Prime
+// Find all the Prime Numbers
+// Sieve of Erastosthenes
 import java.util.*;
 
 public class Main {
