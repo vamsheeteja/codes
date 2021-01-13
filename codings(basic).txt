@@ -1,0 +1,77 @@
+// Is A Number Prime
+
+import java.util.*;
+
+public class Main {
+    public void checkPrime(int n) {
+        int flag = 1;
+
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                flag = 0;
+                break;
+            }
+        }
+
+        if (n <= 1)
+            flag = 0;
+        else if (n == 2)
+            flag = 1;
+
+
+        if (flag == 0)
+            System.out.println("not prime");
+        else if (flag == 1)
+            System.out.println("prime");
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        int n[] = new int[t];
+        for (int i = 0; i < t; i++) {
+            n[i] = sc.nextInt();
+        }
+        for (int i = 0; i < t; i++) {
+            new Main().checkPrime(n[i]);
+        }
+    }
+}
+
+// Is A Number Prime
+import java.util.*;
+
+public class Main {
+    public void allPrimes(int s, int e) {
+
+        boolean prime[] = new boolean[e + 1];
+        for (int i = 0; i < prime.length; i++) {
+            prime[i] = true;
+        }
+
+        for (int i = 2; i * i <= e; i++) {
+            if (prime[i] == true) {
+                for (int j = i * i; j <= e; j += i) {
+                    prime[j] = false;
+                }
+            }
+        }
+
+        for (int i = s; i < prime.length; i++) {
+            if (prime[i] == true) {
+                System.out.println(i + " ");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n1, n2;
+        n1 = sc.nextInt();
+        n2 = sc.nextInt();
+        new Main().allPrimes(n1, n2);
+    }
+}
+
+
+
