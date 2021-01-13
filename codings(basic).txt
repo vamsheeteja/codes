@@ -37,7 +37,7 @@ public class Main {
         }
     }
 }
-
+===============================================================================================================================================
 // Find all the Prime Numbers
 // Sieve of Erastosthenes
 import java.util.*;
@@ -73,6 +73,48 @@ public class Main {
         new Main().allPrimes(n1, n2);
     }
 }
+===============================================================================================================================================
+//fibonacci
+import java.util.*;
 
+public class Main {
 
+    public void fibonacci(int n) {
+        int n1 = 0;
+        int n2 = 1;
+        System.out.println(n1 + "\n" + n2);
+        int i = 0;
+        int n3;
+        while (i < n - 2) {
+            n3 = n1 + n2;
+            System.out.println(n3);
+            n1 = n2;
+            n2 = n3;
+            i++;
+        }
+    }
+    public static void main(String[] args) {
+        // write your code here
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        new Main().fibonacci(n);
+    }
+}
 
+===============================================================================================================================================
+// Count Digits In A Number
+// log-based solution 
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int d = (int)Math.floor(Math.log10(n)+1);
+        System.out.println(d);
+    }
+}
+
+===============================================================================================================================================
