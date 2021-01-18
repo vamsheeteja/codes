@@ -1,0 +1,229 @@
+// check if given array is sorted or not using recursion
+import java.util.*;
+
+public class HelloWorld {
+  
+    public static boolean isSorted(int arr[], int size)
+    {
+      
+      if(size == 0 || size == 1)
+      {
+        return true;
+      }
+      if(arr[size - 1] < arr[size - 2])
+      {
+        return false;
+      }
+      
+      return isSorted(arr, size-1);
+    }
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+      int arr[] = new int[n];
+      for(int i=0; i<n; i++)
+      {
+        arr[i] = sc.nextInt();
+      }
+      System.out.println(isSorted(arr, n));
+      
+    }
+}
+
+// array sum using recursion
+import java.util.*;
+
+public class HelloWorld {
+  
+    public static int arraySum(int arr[], int size)
+    {
+      if(size == 1)
+      {
+        return arr[0];
+      }
+      return arraySum(arr, size-1) + arr[size-1];
+    }
+    
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+      int arr[] = new int[n];
+      for(int i=0; i<n; i++)
+      {
+        arr[i] = sc.nextInt();
+      }
+      System.out.println(arraySum(arr, n));
+    }
+}
+
+// checking num in an array (recusion)
+import java.util.*;
+
+public class HelloWorld {
+  
+    public static boolean checkNum(int arr[], int size, int num)
+    {
+      if(size == 1 && arr[size-1] != num)
+      {
+        return false;
+      }
+      if(arr[size-1] == num)
+      {
+        return true;
+      }
+      return checkNum(arr, size-1, num);
+    }
+    
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+      int arr[] = new int[n];
+      for(int i=0; i<n; i++)
+      {
+        arr[i] = sc.nextInt();
+      }
+      int x = sc.nextInt();
+      System.out.println(checkNum(arr, n, x));
+    }
+}
+
+
+// last index of a num in an array using recusion
+import java.util.*;
+
+public class HelloWorld {
+    
+    public static int lastIndex(int arr[], int size, int num, int ci)
+    {
+      
+      if(ci < 0)
+      {
+        return -1;
+      }
+      if(arr[ci] == num)
+      {
+        return ci;
+      }
+      return lastIndex(arr, size, num, --ci);
+    }
+    
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0; i<n; i++)
+        {
+          arr[i] = sc.nextInt();
+        }
+        int x = sc.nextInt();
+        int ci = n-1;
+        int ans = lastIndex(arr, n, x, ci);
+        
+        if(ans >= 0)
+        {
+          System.out.println(ans);
+        }
+        else
+        {
+          System.out.println("-1");  
+        }
+        
+    }
+}
+
+// all indices of a number
+import java.util.*;
+
+public class HelloWorld {
+    
+    public static int[] numIndices(int arr[], int size, int num, int ci, int ans[], int i)
+    {
+      if(size == ci)
+      {
+        return ans;
+      }
+      if(arr[ci] == num)
+      {
+        ans[++i] = ci; 
+      }
+      return numIndices(arr, size, num, ++ci, ans, i);
+    }
+    
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0; i<n; i++)
+        {
+          arr[i] = sc.nextInt();
+        }
+        int x = sc.nextInt();
+        int ans[] = new int[n];
+        
+        int res[] = numIndices(arr, n, x, 0, ans, 0);
+        
+        for(int i=0; i<ans.length; i++)
+        {
+          if(ans[i] != 0)
+          {
+            System.out.print(ans[i] + " ");
+          }
+          continue;
+        }
+        
+        
+        
+    }
+}
+
+// multiplication
+import java.util.*;
+
+public class HelloWorld {
+    
+    public static int multiply(int n, int c)
+    {
+        if(n == 0 || c == 0)
+        {
+          return 0;
+        }
+        return n + multiply(n, --c);
+    }
+    
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int c = sc.nextInt();
+        System.out.println(multiply(n, c));
+      
+    }
+}
+
+// Geometric sum
+import java.util.*;
+
+public class HelloWorld {
+    
+    public static double gSum(int n)
+    {
+        if(n == 0)
+        {
+          return 1;
+        }
+        // return gSum(--n) + 1/Math.pow(2, n); "CAREFULL! MAN,  THIS LINE IS DANGEROUS"
+        return gSum(n-1) + 1/Math.pow(2, n);
+    }
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(gSum(n));
+    }
+}
+
+
+
+

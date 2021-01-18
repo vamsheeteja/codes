@@ -163,3 +163,118 @@ public class Main {
     }
 }
 ===============================================================================================================================================
+// inverse-of-a-number-official
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        int inv = 0;
+        int op = 1;
+        while (n != 0) {
+            
+            int od = n % 10;
+            int id = op;
+            int ip = od;
+            inv = inv + id * (int) Math.pow(10, ip - 1);
+            n = n / 10;
+            op++;
+        }
+        System.out.println(inv);
+    }
+}
+===============================================================================================================================================
+// gcd-and-lcm-official
+import java.util.*;
+
+public class Main {
+
+    public static int gcd(int a, int b)
+    {
+        if(a == 0)
+        {
+            return b;
+        }
+        return gcd(b%a, a);
+    }
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+        int gcd = gcd(n1, n2);
+        System.out.println(gcd);
+        System.out.println((n1 * n2)/gcd);
+    }
+}
+
+===============================================================================================================================================
+// prime-factorisation-official
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        for(int i=2; i<n; i++)
+        {
+            
+            while(n % i == 0)
+            {
+                System.out.print(i + " ");
+                n = n / i;
+            }
+        }
+        if(n >2) 
+        {
+            System.out.println(n);
+        }
+    }
+}
+===============================================================================================================================================
+// pythogorean triplet 
+
+import java.util.*;
+
+public class Main {
+
+    public static void pyTriplets(int a, int b, int c)
+    {
+        if(Math.pow(c, 2) == (Math.pow(a, 2) + Math.pow(b, 2)))
+        {
+            System.out.println("true");
+        }
+        else
+        {
+            System.out.println("false");
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+        int n3 = sc.nextInt();
+        if(n1>n2 && n1>n3)
+        {
+            pyTriplets(n2, n3, n1);
+            System.exit(0);
+        }
+        if(n2>n1 && n2>n3 )
+        {
+            pyTriplets(n1, n3, n2);
+            System.exit(0);
+        }
+        else
+        {
+            pyTriplets(n1, n2, n3);
+        }
+    }
+}
+
+===============================================================================================================================================
+===============================================================================================================================================
